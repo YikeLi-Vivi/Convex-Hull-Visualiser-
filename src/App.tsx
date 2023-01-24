@@ -1,13 +1,11 @@
 
-import { Board } from './components/Board'
 import './App.css'
-import GiftWrappingCanvas from './components/GiftWrappingCanvas'
-import {Test} from './components/Test'
+import Board from './components/Board'
 function App() {
     const convexSolver = () => console.log("clicked")
   return (
     <>
-    <Test />
+        <Board/>
     </>
   )
 }
