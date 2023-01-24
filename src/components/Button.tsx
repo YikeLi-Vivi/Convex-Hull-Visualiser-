@@ -8,11 +8,13 @@ export interface ButtonProps {
 }
 
 const BlackButton = styled.button `
+    width:200px;   
+    height:55px; 
     background-color:black;
     color: white;
     font-size:20px;
     border-radius: 7px;
-    margin: 10px 5px;
+    margin: 50px 5px;
     cursor: pointer;
     padding: 10px 50px;
     text-align: center;
