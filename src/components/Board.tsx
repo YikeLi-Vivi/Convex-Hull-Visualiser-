@@ -15,6 +15,7 @@ import Select, {SelectChangeEvent} from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
 import InputLabel from "@mui/material/InputLabel"
 import FormControl from "@mui/material/FormControl"
+import PopUpBox from './PopUpBox'
 import { FormLabel, Menu } from '@mui/material'
 
 interface Line {
@@ -26,7 +27,7 @@ interface Line {
 
 
 const Board = () => {
-
+    const [insOpen, setInsOpen] = useState(false);
     const [points, setPoints] = useState<Point[]>([])
     const [algo, setAlgo] = useState<string>("")
     const [choice, setChoice] = useState<string>("")
@@ -37,7 +38,7 @@ const Board = () => {
     const [solve, setSolve] = useState(false)
     
     const handleMouseClick = useCallback ((event: MouseEvent) => {
-        if (event.clientY < window.innerHeight * 0.8 && event.clientX < window.innerWidth ) {
+        if (event.clientY < window.innerHeight * 0.8 && event.clientX < window.innerWidth && !insOpen) {
             setPoints(points => [...points, new Point({x: event.clientX, y: event.clientY})])
             console.log(event.clientY)
         }
@@ -56,8 +57,9 @@ const Board = () => {
     }
 
     const windowResized = (p5: p5Types) => {
-        p5.background(0)
+        console.log("resized")
         p5.resizeCanvas(p5.windowWidth, p5.windowHeight * 0.8)
+        p5.background(0)
     }
 
     const handleChange = (event: SelectChangeEvent) =>{
@@ -89,20 +91,21 @@ const Board = () => {
     return (
     <div>
         {render(choice, points)}
-{/* 
-      { solve? <QuickHull points={points} /> : 
-               <Sketch setup={setup} 
-                windowResized={windowResized} 
-                draw={draw}/> } */}
-        <FormControl sx={{ m: 1, width: 200, borderRadius: "7px", backgroundColor:"black", marginTop:"50px" }} style={{color: "white"}}>
-        <InputLabel id="demo-simple-select-label" style={{color: "#3CCF4E", fontWeight:"900"}}>Select Algorithm</InputLabel>
+        <FormControl sx={{ 
+            m: 1, width: 200,
+            borderRadius: "7px", backgroundColor:"black", marginTop:"50px", fontFamily:"Source Code Pro, monospace" }} style={{color: "white"}}>
+        <InputLabel id="demo-simple-select-label" sx={{color:"white", fontWeight:"900", fontFamily:"Source Code Pro, monospace"}}>Select Algorithm</InputLabel>
             <Select
-                label="Select Algorithm"
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                style={{color: "white", borderRadius: "7px"}}
+                style={{
+                    color: "white", 
+                    borderRadius: "7px", 
+                    fontFamily:"Source Code Pro, monospace"
+                    }}
                 value={algo}
                 onChange={handleChange}
+                sx={{fontFamily:"Source Code Pro, monospace", fontSize:"15px"}}
             >
                 <MenuItem value={1}>Gift Wrapping</MenuItem>
                 <MenuItem value={2}>Graham Scan</MenuItem>
@@ -112,6 +115,7 @@ const Board = () => {
         </FormControl>
         <Button text='solve' onClick={startSolve}/>
         <Button text='restart' onClick={refresh}/>
+        <PopUpBox openFun={()=>setInsOpen(true)} closeFun={()=>setInsOpen(false)}/>
     </div>
   )
 }

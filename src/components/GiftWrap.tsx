@@ -23,8 +23,7 @@ interface Line {
 
 const GiftWrap = (props: Props) => {
     let {points} = props 
-
-
+    
     points.sort ((a, b) => a.x - b.x)
     let leftMost = points[0]
     let currentPoint = points[0]

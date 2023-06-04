@@ -13,7 +13,6 @@ export interface PointShapeProp {
     style: PointStyle 
 }
 
-
 const StyledPoint = styled.div `
     border-radius: 50%;
     position: absolute;

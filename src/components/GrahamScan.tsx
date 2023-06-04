@@ -89,7 +89,6 @@ const GrahamScan = (props: Props) => {
             p5.noLoop()
         }
 
-        
         let p1 = hull[length - 2]
         let p2 = hull[length - 1]
         while (length > 1 && orientation(p2, p1, points[currentIdx]) != 1) {
@@ -99,13 +98,10 @@ const GrahamScan = (props: Props) => {
             p2 = hull[length - 1]
             sleep(3)
         } 
-
         console.log("pushed")
         if (points[currentIdx] != bottom){hull.push(points[currentIdx])}
         currentIdx += 1
         sleep(3)
-        
-
     }
 
   return (

@@ -13,7 +13,6 @@ export interface Point {
     y: number ;
 }
 
-
 export class Point extends React.Component {
     constructor(props: PointProps) {
         super(props);

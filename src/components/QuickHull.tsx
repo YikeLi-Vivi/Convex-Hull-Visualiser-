@@ -13,16 +13,11 @@ interface Prop{
 const AL_C = ColorDict.ACTIVE_LINE
 const RL_C = ColorDict.RESULT_LINE
 
-
-
 const QuickHull = (props: Prop) => {
     const {points} = props 
     let segLine : Line | null = null 
     let hull: Point[] = []
-    
-
     const setup = getSetup(points)
-
     const solveHull = () => {
         if (points.length <= 3)  {
             return 
@@ -34,20 +29,17 @@ const QuickHull = (props: Prop) => {
         segLine = {start: min_x, end: max_x} 
         quickHull(min_x, max_x, -1)
         quickHull(min_x, max_x, 1)
-
     }
     
     const quickHull = (p1: Point, p2: Point, side: number) => {
     let ind = -1;
     let max_dist = 0;
- 
     points.map((p, idx) => {
         let temp = lineDist(p1, p2, p)
         if(orientation(p1, p2, p) == side && temp > max_dist) {
             ind = idx 
             max_dist = temp 
         }
-
     })
 
     if (ind == -1 ) {

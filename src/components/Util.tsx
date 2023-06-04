@@ -12,7 +12,6 @@ export const windowResized = (p: p5Types) =>{
     p.resizeCanvas(p.windowWidth, p.windowHeight * 0.8)
 }
 
-
 export const getSetup = (points: Point[]) => {
     const setup = (p5: p5Types, canvasParentRef: Element) => {
         p5.createCanvas(p5.windowWidth, p5.windowHeight * 0.8).parent(canvasParentRef)
@@ -20,10 +19,8 @@ export const getSetup = (points: Point[]) => {
         p5.stroke(255)
         points.map((p, idx)=> p.draw(p5, 10))
     }
-
     return setup 
 }
-
 
 export const dist = (p1: Point, p2: Point) => {
     return Math.sqrt((p2.y - p1.y)*(p2.y - p1.y) 
@@ -59,9 +56,9 @@ export const polarAngle = (p1: Point, p2: Point) => {
 
     let dy = p1.y - p2.y 
     let dx = p1.x - p2.x 
-
     return Math.atan2(dy, dx)
 }
+
 
 export const sortCounterClock = (Hull : Point[]) => {
     let centerX = Hull.reduce((a, b)=> a + b.x, 0) 
@@ -70,7 +67,6 @@ export const sortCounterClock = (Hull : Point[]) => {
     let centerY = Hull.reduce((a, b)=> a + b.y , 0) 
     centerY = centerY / Hull.length
 
-    
     interface PointWithAngle {
         point: Point, 
         angle: number 
