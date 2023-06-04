@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
 import {Point} from "./Point"
-import {dist, orientation, refresh} from "./Util"
+import {dist, orientation} from "./Util"
 import Sketch from 'react-p5'
 import p5Types from "p5"
 import Button from "./Button"
@@ -31,6 +31,12 @@ const Board = () => {
     const [points, setPoints] = useState<Point[]>([])
     const [algo, setAlgo] = useState<string>("")
     const [choice, setChoice] = useState<string>("")
+    const refresh = () => {
+        setSolve(false)
+        setPoints([])
+        setChoice("")
+        setAlgo("")
+    }
     const draw = (p5: p5Types) => {
         points.map((p, i) => p.draw(p5, 10))
     }

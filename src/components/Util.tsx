@@ -45,7 +45,7 @@ export const refresh = () => {
 }
 
 export const sleep = (time: number)  => {
-    for (let index = 0; index < time*100000000; index++) {
+    for (let index = 0; index < time*200000000; index++) {
     }
 }
 
