@@ -185,9 +185,9 @@ const DivideAndConquer = (props: Props) => {
     }
 
     divide(points)
-    const draw = (p5: p5Types) => {
+    const draw = async (p5: p5Types) => {
         drawHull(solutions[idx], p5)
-        sleep(2)
+        await sleep(0.1)
         idx += 1
         if (idx == solutions.length) p5.noLoop()
     }

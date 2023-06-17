@@ -14,7 +14,7 @@ const BlackButton = styled.button `
     color: white;
     font-size:20px;
     border-radius: 7px;
-    margin: 50px 5px;
+    margin: 10px 5px;
     margin-bottom:10px;
     cursor: pointer;
     padding: 10px 50px;

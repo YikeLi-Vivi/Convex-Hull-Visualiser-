@@ -14,6 +14,7 @@ export const windowResized = (p: p5Types) =>{
 
 export const getSetup = (points: Point[]) => {
     const setup = (p5: p5Types, canvasParentRef: Element) => {
+        p5.frameRate(5)
         p5.createCanvas(p5.windowWidth, p5.windowHeight * 0.8).parent(canvasParentRef)
         p5.background(0)
         p5.stroke(255)
@@ -44,10 +45,8 @@ export const refresh = () => {
     window.location.reload()
 }
 
-export const sleep = (time: number)  => {
-    for (let index = 0; index < time*200000000; index++) {
-    }
-}
+
+export const sleep = (delay : number) => new Promise((resolve) => setTimeout(resolve, delay * 1000))
 
 export const polarAngle = (p1: Point, p2: Point) => {
     if (p1.x == p2.x) {

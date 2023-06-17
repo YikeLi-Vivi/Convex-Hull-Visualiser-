@@ -59,10 +59,10 @@ const QuickHull = (props: Prop) => {
 
     let currIdx = 0
 
-    const draw = (p5: p5Types) => {
+    const draw = async (p5: p5Types) => {
  
         segLine?.start.connectLine(p5, segLine.end)
-        sleep(5)
+        await sleep(0.1)
         p5.stroke(AL_C.r, AL_C.g, AL_C.b)
         p5.strokeWeight(4)
         console.log(hull.length)

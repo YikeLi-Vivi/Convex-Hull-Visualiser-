@@ -38,6 +38,7 @@ const Board = () => {
         setAlgo("")
     }
     const draw = (p5: p5Types) => {
+        p5.background(0)
         points.map((p, i) => p.draw(p5, 10))
     }
     
@@ -57,6 +58,7 @@ const Board = () => {
     }
 
     const setup = (p5: p5Types, canvasParentRef: Element) => {
+        p5.frameRate(5)
         window.addEventListener("mousedown", handleMouseClick)
         p5.createCanvas(p5.windowWidth, p5.windowHeight * 0.8).parent(canvasParentRef)
         p5.background(0)
@@ -72,13 +74,8 @@ const Board = () => {
         setAlgo(event.target.value as string)
     }
 
-
     const render = (choiceAlgo: string, points: Point[] ) => {
         console.log("render function", choice, points)
-        if (choice == "1") {
-            console.log("1")
-        }
-
         if (choiceAlgo == ""){
             return (<Sketch setup={setup} windowResized={windowResized} draw={draw}/>)
         } else if (choiceAlgo == "1") {
@@ -97,9 +94,10 @@ const Board = () => {
     return (
     <div>
         {render(choice, points)}
+        <div style={{backgroundColor: "#3F4E4F", padding: 40}}>
         <FormControl sx={{ 
             m: 1, width: 200,
-            borderRadius: "7px", backgroundColor:"black", marginTop:"50px", fontFamily:"Source Code Pro, monospace" }} style={{color: "white"}}>
+            borderRadius: "7px", backgroundColor:"black", fontFamily:"Source Code Pro, monospace" }} style={{color: "white"}}>
         <InputLabel id="demo-simple-select-label" sx={{color:"white", fontWeight:"900", fontFamily:"Source Code Pro, monospace"}}>Select Algorithm</InputLabel>
             <Select
                 labelId="demo-simple-select-label"
@@ -119,9 +117,12 @@ const Board = () => {
                 <MenuItem value={4}>Divide and Conquer</MenuItem>
             </Select>
         </FormControl>
+
         <Button text='solve' onClick={startSolve}/>
         <Button text='restart' onClick={refresh}/>
+
         <PopUpBox openFun={()=>setInsOpen(true)} closeFun={()=>setInsOpen(false)}/>
+        </div>
     </div>
   )
 }

@@ -50,6 +50,7 @@ const GrahamScan = (props: Props) => {
         p5.createCanvas(p5.windowWidth, p5.windowHeight * 0.8).parent(canvasParentRef)
         p5.background(0)
         p5.stroke(255)
+        p5.frameRate(5)
         points.map((p, idx) => p.draw(p5, 10))
     }
 
@@ -57,7 +58,7 @@ const GrahamScan = (props: Props) => {
         p5.resizeCanvas(p5.windowWidth, p5.windowHeight * 0.8)
     }
 
-    const draw = (p5: p5Types) => {
+    const draw = async (p5: p5Types) => {
         p5.background(0)
         p5.stroke(255)
         points.map((p, idx) => p.draw(p5, 10))
@@ -96,12 +97,11 @@ const GrahamScan = (props: Props) => {
             length = hull.length
             p1 = hull[length - 2]
             p2 = hull[length - 1]
-            sleep(3)
+            await sleep(0.1)
         } 
         console.log("pushed")
         if (points[currentIdx] != bottom){hull.push(points[currentIdx])}
         currentIdx += 1
-        sleep(3)
     }
 
   return (
