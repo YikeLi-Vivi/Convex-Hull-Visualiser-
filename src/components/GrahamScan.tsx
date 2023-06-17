@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import p5Types from "p5"
+import P5 from "p5"
 import { Point } from './Point'
 import {dist, orientation, polarAngle, sleep} from "./Util"
 import Sketch from 'react-p5'
@@ -46,7 +46,7 @@ const GrahamScan = (props: Props) => {
     let hull: Point[] = [bottom]
     let currentIdx = 0 
 
-    const setup = (p5: p5Types, canvasParentRef: Element) => {
+    const setup = (p5: any, canvasParentRef: Element) => {
         p5.createCanvas(p5.windowWidth, p5.windowHeight * 0.8).parent(canvasParentRef)
         p5.background(0)
         p5.stroke(255)
@@ -54,11 +54,11 @@ const GrahamScan = (props: Props) => {
         points.map((p, idx) => p.draw(p5, 10))
     }
 
-    const windowResized = (p5: p5Types) => {
+    const windowResized = (p5: any) => {
         p5.resizeCanvas(p5.windowWidth, p5.windowHeight * 0.8)
     }
 
-    const draw = async (p5: p5Types) => {
+    const draw = async (p5: any) => {
         p5.background(0)
         p5.stroke(255)
         points.map((p, idx) => p.draw(p5, 10))

@@ -33,7 +33,7 @@ const GiftWrap = (props: Props) => {
 
     const setup = getSetup(points)
 
-    const draw = async (p5: p5Types) => {
+    const draw = (p5: any) => {
         p5.stroke(255)
         points.map((p,i) => p.draw(p5, 10))
         /* draw normal points */
@@ -44,11 +44,11 @@ const GiftWrap = (props: Props) => {
         currentPoint.draw(p5, 20)
 
         let checkPoint = points[currentIdx]
-        await sleep(0.1)
+        sleep(1)
         p5.stroke(CL_C.r, CL_C.g, CL_C.b)
         p5.strokeWeight(CL_W)
         currentPoint.connectLine(p5,nextPoint)
-        await sleep(0.1)
+        sleep(1)
         p5.strokeWeight(AL_W)
         p5.stroke(AL_C.r, AL_C.g, AL_C.b)
 

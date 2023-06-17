@@ -37,7 +37,7 @@ const Board = () => {
         setChoice("")
         setAlgo("")
     }
-    const draw = (p5: p5Types) => {
+    const draw = (p5: any) => {
         p5.background(0)
         points.map((p, i) => p.draw(p5, 10))
     }
@@ -57,14 +57,14 @@ const Board = () => {
         setChoice(algo)
     }
 
-    const setup = (p5: p5Types, canvasParentRef: Element) => {
+    const setup = (p5: any, canvasParentRef: Element) => {
         p5.frameRate(5)
         window.addEventListener("mousedown", handleMouseClick)
         p5.createCanvas(p5.windowWidth, p5.windowHeight * 0.8).parent(canvasParentRef)
         p5.background(0)
     }
 
-    const windowResized = (p5: p5Types) => {
+    const windowResized = (p5: any) => {
         console.log("resized")
         p5.resizeCanvas(p5.windowWidth, p5.windowHeight * 0.8)
         p5.background(0)

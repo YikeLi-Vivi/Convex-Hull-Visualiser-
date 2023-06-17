@@ -1,19 +1,18 @@
 import p5Types from "p5"
 import { Point } from "./Point"
 
-
 export interface Line {
     start: Point, 
     end: Point 
 }
 
-export const windowResized = (p: p5Types) =>{
+export const windowResized = (p: any) =>{
     p.background(0)
     p.resizeCanvas(p.windowWidth, p.windowHeight * 0.8)
 }
 
 export const getSetup = (points: Point[]) => {
-    const setup = (p5: p5Types, canvasParentRef: Element) => {
+    const setup = (p5: any, canvasParentRef: Element) => {
         p5.frameRate(5)
         p5.createCanvas(p5.windowWidth, p5.windowHeight * 0.8).parent(canvasParentRef)
         p5.background(0)
@@ -46,7 +45,11 @@ export const refresh = () => {
 }
 
 
-export const sleep = (delay : number) => new Promise((resolve) => setTimeout(resolve, delay * 1000))
+export const sleep = (time: number) => {
+    var i  = 0;
+    for (i  = 1; i < 10000 * time; i++){
+    }
+}
 
 export const polarAngle = (p1: Point, p2: Point) => {
     if (p1.x == p2.x) {
