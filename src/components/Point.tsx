@@ -1,7 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 import p5Types from "p5";
-import Sketch  from 'react-p5';
 
 export interface PointProps {
     x: number;

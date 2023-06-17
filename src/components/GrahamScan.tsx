@@ -1,6 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import P5 from "p5"
 import { Point } from './Point'
 import {dist, orientation, polarAngle, sleep} from "./Util"
 import Sketch from 'react-p5'

@@ -1,22 +1,16 @@
-import React, { useCallback, useState } from 'react'
-import PropTypes from 'prop-types'
+import  { useCallback, useState } from 'react'
 import {Point} from "./Point"
-import {dist, orientation} from "./Util"
 import Sketch from 'react-p5'
-import p5Types from "p5"
 import Button from "./Button"
-import SketchGiftWrap from "./GiftWrap"
 import GrahamScan from "./GrahamScan"
 import GiftWrap from './GiftWrap'
 import DivideAndConquer from "./DivideAndConquer"
-import ComboBox from "./ComBoBox"
 import QuickHull from "./QuickHull"
 import Select, {SelectChangeEvent} from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
 import InputLabel from "@mui/material/InputLabel"
 import FormControl from "@mui/material/FormControl"
 import PopUpBox from './PopUpBox'
-import { FormLabel, Menu } from '@mui/material'
 
 interface Line {
     x1: number,

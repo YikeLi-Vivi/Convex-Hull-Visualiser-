@@ -1,6 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Select, {GroupBase, OptionsOrGroups} from "react-select"
+import Select from "react-select"
 interface Prop {
     selections: string []
 }

@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import {Point} from "./Point"
 import {getSetup, sleep, orientation} from "./Util"
 import p5Types from "p5"

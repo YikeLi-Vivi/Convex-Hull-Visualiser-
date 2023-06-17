@@ -1,5 +1,3 @@
-import React from "react"
-import p5Types from "p5"
 import {Point} from "./Point"
 import { orientation, dist, sleep, getSetup, windowResized } from "./Util"
 import {ColorDict, DimensionDict} from "../util/Style"

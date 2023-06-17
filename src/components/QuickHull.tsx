@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import {Point} from "./Point"
 
 import { orientation,  windowResized, getSetup, sortCounterClock, Line, sleep, lineDist, drawHull} from './Util'
